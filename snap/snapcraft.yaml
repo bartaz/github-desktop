@@ -1,0 +1,44 @@
+name: github-desktop
+version: 0.6.3-beta1
+summary: Extend your GitHub workflow beyond your browser with GitHub Desktop
+description: |
+ Extend your GitHub workflow beyond your browser with our Desktop,
+ completely redesigned with Electron. Get a unified cross-platform
+ experience that's completely open source and ready to customize.
+
+grade: stable
+confinement: devmode
+
+parts:
+  github-desktop:
+    plugin: dump
+    source: https://github.com/gengjiawen/desktop/releases/download/v0.6.3-beta1/desktop_0.6.3-beta1_amd64.deb
+    source-type: deb
+    # Correct path to icon.
+    prepare: |
+      sed -i 's|Icon=desktop|Icon=/usr/share/icons/hicolor/256x256/apps/desktop\.png|g' usr/share/applications/desktop.desktop
+    after:
+      - desktop-gtk2
+    stage-packages:
+      - gconf2
+      - libasound2
+      - libgl1-mesa-glx
+      - libglu1-mesa
+      - libnotify4
+      - libnspr4
+      - libnss3
+      - libpulse0
+      - libxss1
+      - libxtst6
+  #electron-launch:
+  #  plugin: dump
+  #  source: .
+  #  organize:
+  #    electron-launch: bin/electron-launch
+
+apps:
+  github-desktop:
+    command: # Correct the TMPDIR path for Chromium Framework/Electron to
+    # ensure libappindicator has readable resources.
+    command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/opt/GithubDesktop/desktop
+    desktop: usr/share/applications/desktop.desktop
