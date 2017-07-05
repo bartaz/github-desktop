@@ -59,9 +59,7 @@ upstream so GitHub Desktop can authoritatively publish future releases.
 
 If you have any questions, [post in the Snapcraft forum](https://forum.snapcraft.io).
 
-## The Snapcrafters
-
-## The Snapcrafters
+githu ## The Snapcrafters
 
 | [![Martin Wimpress](http://gravatar.com/avatar/ce95823a37d9ffa2e65a31cc60a2c42a/?s=128)](https://github.com/flexiondotorg/) |
 | :---: |
