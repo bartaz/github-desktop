@@ -11,6 +11,9 @@
 <a href="https://build.snapcraft.io/user/snapcrafters/github-desktop"><img src="https://build.snapcraft.io/badge/snapcrafters/github-desktop.svg" alt="Snap Status"></a>
 </p>
 -->
+<p align="center">
+<a href="https://github.com/canonical-websites/build.snapcraft.io/issues/875">Bug #875</a>
+</p>
 
 ## Install
 
